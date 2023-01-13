@@ -1,6 +1,7 @@
 name: Docker Image CI for PRs
 
 on:
+  push:
   pull_request:
     branches: [ master ]
 
@@ -25,6 +26,7 @@ jobs:
         with:
           context: ./pdns-recursor
           file: ./pdns-recursor/Dockerfile
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           builder: ${{ steps.buildx.outputs.name }}
           push: false
           tags: pdns-recursor:latest
@@ -38,6 +40,7 @@ jobs:
         with:
           context: ./pdns-recursor
           file: ./pdns-recursor/Dockerfile.alpine
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           builder: ${{ steps.buildx.outputs.name }}
           push: false
           tags: pdns-recursor:alpine
@@ -51,6 +54,7 @@ jobs:
         with:
           context: ./pdns
           file: ./pdns/Dockerfile
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           builder: ${{ steps.buildx.outputs.name }}
           push: false
           tags: pdns-mysql:latest
@@ -64,6 +68,7 @@ jobs:
         with:
           context: ./pdns
           file: ./pdns/Dockerfile.alpine
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           builder: ${{ steps.buildx.outputs.name }}
           push: false
           tags: pdns-mysql:alpine
@@ -77,6 +82,7 @@ jobs:
         with:
           context: ./pdns-admin-base-ngoduykhanh
           file: ./pdns-admin-base-ngoduykhanh/Dockerfile
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           builder: ${{ steps.buildx.outputs.name }}
           push: false
           tags: |
@@ -92,6 +98,7 @@ jobs:
         with:
           context: ./pdns-admin-uwsgi-ngoduykhanh
           file: ./pdns-admin-uwsgi-ngoduykhanh/Dockerfile
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           builder: ${{ steps.buildx.outputs.name }}
           push: false
           tags: |
@@ -107,6 +114,7 @@ jobs:
         with:
           context: ./pdns-admin-static-ngoduykhanh
           file: ./pdns-admin-static-ngoduykhanh/Dockerfile
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           builder: ${{ steps.buildx.outputs.name }}
           push: false
           tags: |
