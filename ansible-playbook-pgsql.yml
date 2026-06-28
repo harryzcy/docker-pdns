@@ -74,7 +74,7 @@
               - pgsql
         volumes:
           - /etc/localtime:/etc/localtime:ro
-          - pdns-postgres-volume:/var/lib/postgresql/data:Z
+          - pdns-postgres-volume:/var/lib/postgresql:Z
         env:
           POSTGRES_PASSWORD: 'my-secret-pw'
         healthcheck:
@@ -217,7 +217,7 @@
           PDNS_ADMIN_SQLA_DB_PORT: '5432'
           PDNS_ADMIN_SQLA_DB_USER: 'postgres'
           PDNS_ADMIN_SQLA_DB_PASSWORD: 'my-secret-pw'
-          PDNS_VERSION: '5.0'
+          PDNS_VERSION: '5.0.5'
           PDNS_API_KEY: 'secret'
       tags:
         - pdns-admin

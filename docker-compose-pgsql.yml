@@ -20,7 +20,7 @@ services:
           - pgsql
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - pgsql:/var/lib/postgresql/data:Z
+      - pgsql:/var/lib/postgresql:Z
     environment:
       - POSTGRES_PASSWORD=my-secret-pw
     healthcheck:
@@ -108,7 +108,7 @@ services:
       - PDNS_ADMIN_SQLA_DB_PORT=5432
       - PDNS_ADMIN_SQLA_DB_USER=postgres
       - PDNS_ADMIN_SQLA_DB_PASSWORD=my-secret-pw
-      - PDNS_VERSION=5.0
+      - PDNS_VERSION=5.0.5
       - PDNS_API_KEY=secret
     depends_on:
       - postgres
